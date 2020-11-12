@@ -87,5 +87,5 @@ class StreamingFirebase():
 if __name__ == '__main__':
 
     obj = FirebaseData()
-    obj.SetContainer("container 1" , {"location":"kitchen","item":"test item","refill needed":"false","date last":"12-11-2020"})
+    obj.SetContainer("container1" , {"location":"kitchen","item":"test item","refill needed":"false","date last":"12-11-2020"})
     obj.GetAllContainers()
