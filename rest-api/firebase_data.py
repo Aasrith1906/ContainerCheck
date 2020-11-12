@@ -76,11 +76,16 @@ class FirebaseData():
         result = self.db.child("Containers").child(container_name).remove()
         return result
 
-class StreamingFirebase(FirebaseData):
+class StreamingFirebase():
 
-    pass
+    def __init__(self,firebase_obj: FirebaseData):
+
+        self.fbo = firebase_obj
+
+    
             
 if __name__ == '__main__':
 
     obj = FirebaseData()
+    obj.SetContainer("container 1" , {"location":"kitchen","item":"test item","refill needed":"false","date last":"12-11-2020"})
     obj.GetAllContainers()
