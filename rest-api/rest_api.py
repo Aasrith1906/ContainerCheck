@@ -39,6 +39,16 @@ class IndividualContainer(Resource):
         new_container = request.get_json()
         check_container = fbo.GetSpecificContainer(containername)
 
+        required_keys = ["location","item","refill","last_date"]
+
+        print(list(new_container.keys()))
+        
+        for key in required_keys:
+
+            if key not in list(new_container.keys()):
+
+                return {"message":"invalid parameters"},500
+        
         if check_container is not None:
             fbo.UpdateContainer(containername, new_container)
         else:
@@ -49,6 +59,10 @@ class IndividualContainer(Resource):
             return {'message':'container created','data':container_return} , 201
         else:
             return {'message':'container not created'} , 500
+
+    def delete(self,containername):
+        fbo.DeleteContainer(containername)
+        return {'message':'container deleted','data':containername}
 
 api.add_resource(Containers,'/Containers')
 api.add_resource(IndividualContainer,'/Containers/<string:containername>')

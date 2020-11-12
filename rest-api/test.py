@@ -28,10 +28,16 @@ class ApiTests(unittest.TestCase):
 
     def test_post_new_container(self):
         
-        test_data = {'testdata':"this is a test"}
+        test_data = {"location":"kitchen","item":"testitem","refill":"false","last_date":"12-11-2020"}
         requests.post("http://127.0.0.1:5000/Containers/testcontainer",json=test_data)
         get_container = fbo.GetSpecificContainer("testcontainer")
         self.assertEqual(get_container,test_data)
+
+    def test_delete_new_container(self):
+
+        requests.delete("http://127.0.0.1:5000/Containers/testcontainer")
+        r = requests.get("http://127.0.0.1:5000/Containers/testcontainer")
+        self.assertEqual(r.json()["message"] , "container not found")
 
 
 if __name__ == '__main__':
