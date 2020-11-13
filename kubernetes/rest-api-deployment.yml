@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rest-api-deploy
+spec:
+  selector:
+    matchLabels:
+      app: rest-api-app
+  replicas: 10
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: rest-api-app 
+    spec:
+      containers:
+      - name: rest-api-container
+        image: aasrith1906/rest-api-image
+        ports:
+        - containerPort: 5000

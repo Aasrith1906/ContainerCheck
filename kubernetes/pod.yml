@@ -1,0 +1,10 @@
+apiVersion: v1 
+kind: Pod 
+metadata:
+  name: rest-api-pod
+spec:
+  containers:
+  - name: rest-api-image 
+    image: aasrith1906/rest-api-image:latest
+    ports:
+    - containerPort: 5000
