@@ -3,14 +3,24 @@ from flask_restful import Resource, Api, reqparse , request
 import requests
 from firebase_data import FirebaseData
 import datetime
-
+import markdown
 
 app = Flask(__name__)
 api = Api(app)
 
 fbo = FirebaseData()
 
-
+@app.route('/',methods=['GET'])
+def index():
+    
+    with open("Readme.md" , 'r') as readme_file:
+        
+        all_lines = readme_file.read()
+        readme_file.close()
+    
+    html_ret = markdown.markdown(all_lines)
+    
+    return html_ret , 200
 
 class Containers(Resource):
 
@@ -64,9 +74,16 @@ class IndividualContainer(Resource):
         fbo.DeleteContainer(containername)
         return {'message':'container deleted','data':containername}
 
+class UserLoginResource(Resource):
+
+    def post(self):
+
+        pass
+
 api.add_resource(Containers,'/Containers')
 api.add_resource(IndividualContainer,'/Containers/<string:containername>')
+api.add_resource(UserLoginResource, '/Login')
 
 if __name__ == '__main__':
 
-    app.run(debug= True,host='0.0.0.0')
+    app.run(debug= True,host='0.0.0.0',port=5000)
