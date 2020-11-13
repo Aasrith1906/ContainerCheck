@@ -6,10 +6,6 @@ from rest_api import app
 
 fbo = FirebaseData()
 
-class FirebaseTests(unittest.TestCase):
-
-    pass
-
 class ApiTests(unittest.TestCase):
 
     def test_get_all_containers(self):

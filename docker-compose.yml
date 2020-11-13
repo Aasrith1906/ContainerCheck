@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  rest-api:
+    build: rest-api/ 
+    ports:
+      - "5000:5000"
+  website:
+    build: flask-app/
+    ports:
+      - "5001:5001"
+    depends_on: 
+      - rest-api 

@@ -1,3 +1,4 @@
 Pyrebase
 Flask
 flask-restful
+markdown
