@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rest-api-deploy
+  name: cc-website-deploy
 spec:
   selector:
     matchLabels:
-      app: rest-api-app
+      app: cc-website-deploy
   replicas: 10
   minReadySeconds: 10
   strategy:
@@ -16,10 +16,10 @@ spec:
   template:
     metadata:
       labels:
-        app: rest-api-app 
+        app: cc-website-deploy
     spec:
       containers:
-      - name: rest-api-container
-        image: aasrith1906/cc-rest-api:latest
+      - name: cc-website-container
+        image: aasrith1906/cc-website-image:3.0
         ports:
         - containerPort: 5001
