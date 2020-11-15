@@ -22,4 +22,4 @@ spec:
       - name: rest-api-container
         image: aasrith1906/cc-rest-api:latest
         ports:
-        - containerPort: 5000
+        - containerPort: 5001
