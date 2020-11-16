@@ -1,11 +1,12 @@
-FROM python:3.7
+  
+FROM tiangolo/uwsgi-nginx-flask:python3.8
 
-COPY requirements.txt . 
+
+
+COPY ./app /app
+
+RUN cd /app 
 
 RUN pip install -r requirements.txt 
 
-COPY .  .
-
-EXPOSE 5002
-
-CMD ["python" , "./App.py"]
+RUN cd ..

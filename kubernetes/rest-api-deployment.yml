@@ -20,6 +20,6 @@ spec:
     spec:
       containers:
       - name: rest-api-container
-        image: aasrith1906/cc-rest-api:2.0
+        image: aasrith1906/cc-rest-api-image:1.0
         ports:
-        - containerPort: 5000
+        - containerPort: 80

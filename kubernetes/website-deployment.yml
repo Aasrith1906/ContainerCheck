@@ -20,6 +20,6 @@ spec:
     spec:
       containers:
       - name: cc-website-container
-        image: aasrith1906/cc-website-image:3.0
+        image: aasrith1906/cc-website-image:latest
         ports:
         - containerPort: 5001

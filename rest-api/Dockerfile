@@ -1,11 +1,12 @@
-FROM python:3.8.1
+  
+FROM tiangolo/uwsgi-nginx-flask:python3.8
 
-COPY requirements.txt . 
+
+
+COPY ./app /app
+
+RUN cd /app 
 
 RUN pip install -r requirements.txt 
 
-COPY .  .
-
-EXPOSE 5000
-
-CMD ["python" , "./rest_api.py"]
+RUN cd ..
