@@ -15,3 +15,11 @@ spec:
         backend:
           serviceName: rest-api-deploy 
           servicePort: 80
+  - host: ccweb.com
+    http:
+      paths:
+      - path:
+        backend:
+          serviceName: cc-website-deploy
+          servicePort: 80
+          
