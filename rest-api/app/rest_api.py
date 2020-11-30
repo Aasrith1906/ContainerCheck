@@ -4,11 +4,14 @@ import requests
 from firebase_data import FirebaseData
 import datetime
 import markdown
+from flask_cors import CORS 
 
 app = Flask(__name__)
 api = Api(app)
 
 fbo = FirebaseData()
+
+CORS(app)
 
 @app.route('/',methods=['GET'])
 def index():

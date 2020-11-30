@@ -6,7 +6,7 @@ class FirebaseData():
     def __init__(self):
 
         self.config = {
-        "apiKey": "AIzaSyCwvOlRVZz5AKZUtpUrw9i0YBV3gjGVr-U",
+        "apiKey": "AIzaSyA6muXkerYSKlDCzGhoDX9m9T9LG_WU68Y",
         "authDomain": "container-management-295306.firebaseapp.com",
         "databaseURL": "https://container-management-295306.firebaseio.com/",
         "storageBucket": "container-management-295306.appspot.com",
